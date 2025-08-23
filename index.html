@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nissan - Innovation That Excites</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #dc2626;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #dc2626;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .slide-in {
+            animation: slideIn 0.6s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold text-gray-900">
+                        <span class="text-red-600">NISSAN</span>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="nav-link text-gray-700 hover:text-red-600 px-3 py-2 text-sm font-medium">Home</a>
+                        <a href="#vehicles" class="nav-link text-gray-700 hover:text-red-600 px-3 py-2 text-sm font-medium">Vehicles</a>
+                        <a href="#innovation" class="nav-link text-gray-700 hover:text-red-600 px-3 py-2 text-sm font-medium">Innovation</a>
+                        <a href="#services" class="nav-link text-gray-700 hover:text-red-600 px-3 py-2 text-sm font-medium">Services</a>
+                        <a href="#contact" class="nav-link text-gray-700 hover:text-red-600 px-3 py-2 text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-red-600 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 text-gray-700 hover:text-red-600">Home</a>
+                <a href="#vehicles" class="block px-3 py-2 text-gray-700 hover:text-red-600">Vehicles</a>
+                <a href="#innovation" class="block px-3 py-2 text-gray-700 hover:text-red-600">Innovation</a>
+                <a href="#services" class="block px-3 py-2 text-gray-700 hover:text-red-600">Services</a>
+                <a href="#contact" class="block px-3 py-2 text-gray-700 hover:text-red-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient min-h-screen flex items-center justify-center text-white pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="slide-in">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                    Innovation That <span class="text-red-500">Excites</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto">
+                    Experience the future of mobility with Nissan's cutting-edge technology, sustainable solutions, and unmatched performance.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="scrollToSection('vehicles')" class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105">
+                        Explore Vehicles
+                    </button>
+                    <button onclick="openTestDriveModal()" class="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300">
+                        Schedule Test Drive
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vehicle Showcase -->
+    <section id="vehicles" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Vehicle Lineup</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Discover our range of innovative vehicles designed for every lifestyle and adventure.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Vehicle Card 1 -->
+                <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
+                        <svg class="w-24 h-24 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.22.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Nissan Altima</h3>
+                        <p class="text-gray-600 mb-4">Intelligent mobility meets sophisticated design in our flagship sedan.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-red-600">Starting at $24,550</span>
+                            <button onclick="showVehicleDetails('altima')" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vehicle Card 2 -->
+                <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center">
+                        <svg class="w-24 h-24 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.5 5c-.66 0-1.22.42-1.42 1.01L14 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h4v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99C20.72 5.42 20.16 5 19.5 5h-2zm-11 0c-.66 0-1.22.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h4v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8L9.92 6.01C9.72 5.42 9.16 5 8.5 5h-2z"/>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Nissan Rogue</h3>
+                        <p class="text-gray-600 mb-4">Adventure-ready SUV with advanced safety and comfort features.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-red-600">Starting at $33,300</span>
+                            <button onclick="showVehicleDetails('rogue')" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vehicle Card 3 -->
+                <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center">
+                        <svg class="w-24 h-24 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Nissan LEAF</h3>
+                        <p class="text-gray-600 mb-4">100% electric vehicle leading the charge towards sustainable mobility.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-red-600">Starting at $31,620</span>
+                            <button onclick="showVehicleDetails('leaf')" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovation Section -->
+    <section id="innovation" class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Nissan Innovation</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Pioneering technologies that shape the future of mobility.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-6">Nissan Intelligent Mobility</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-red-600 text-white p-3 rounded-lg">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-900 mb-2">ProPILOT Assist</h4>
+                                <p class="text-gray-600">Advanced driver assistance technology for confident highway driving.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-red-600 text-white p-3 rounded-lg">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-900 mb-2">e-POWER Technology</h4>
+                                <p class="text-gray-600">Revolutionary electrified powertrain for enhanced efficiency and performance.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-red-600 text-white p-3 rounded-lg">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-900 mb-2">Safety Shield 360</h4>
+                                <p class="text-gray-600">Comprehensive suite of safety and driver-assist technologies.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-blue-600 to-purple-700 rounded-2xl p-8 text-white">
+                    <h4 class="text-2xl font-bold mb-4">Experience the Future Today</h4>
+                    <p class="text-lg mb-6">Book a test drive and experience Nissan's innovative technologies firsthand.</p>
+                    <button onclick="openTestDriveModal()" class="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition-colors">
+                        Schedule Test Drive
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Services</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Comprehensive support throughout your Nissan ownership journey.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center p-6 rounded-xl hover:shadow-lg transition-shadow">
+                    <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Certified Service</h3>
+                    <p class="text-gray-600">Expert maintenance and repairs by certified Nissan technicians.</p>
+                </div>
+                
+                <div class="text-center p-6 rounded-xl hover:shadow-lg transition-shadow">
+                    <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Genuine Parts</h3>
+                    <p class="text-gray-600">Authentic Nissan parts and accessories for optimal performance.</p>
+                </div>
+                
+                <div class="text-center p-6 rounded-xl hover:shadow-lg transition-shadow">
+                    <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Warranty Coverage</h3>
+                    <p class="text-gray-600">Comprehensive warranty protection for peace of mind.</p>
+                </div>
+                
+                <div class="text-center p-6 rounded-xl hover:shadow-lg transition-shadow">
+                    <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">24/7 Support</h3>
+                    <p class="text-gray-600">Round-the-clock customer support and roadside assistance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Get In Touch</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">Ready to experience Nissan? Contact us today.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-red-600 p-3 rounded-lg">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Visit Our Showroom</h4>
+                                <p class="text-gray-300">1 Nissan Way, Franklin, TN 37067</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-red-600 p-3 rounded-lg">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Call Us</h4>
+                                <p class="text-gray-300">1-800-NISSAN-1</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-red-600 p-3 rounded-lg">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Email Us</h4>
+                                <p class="text-gray-300">info@nissan.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 p-8 rounded-xl">
+                    <h3 class="text-2xl font-bold mb-6">Send Us a Message</h3>
+                    <p class="text-sm text-yellow-400 mb-4">⚠️ Demo Form - Messages will not be sent</p>
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Name</label>
+                            <input type="text" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent text-white" placeholder="Your Name">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Email</label>
+                            <input type="email" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent text-white" placeholder="your@email.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Message</label>
+                            <textarea rows="4" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent text-white" placeholder="Your message..."></textarea>
+                        </div>
+                        <button type="button" onclick="showDemoAlert()" class="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg font-semibold transition-colors">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold text-red-600 mb-4">NISSAN</h3>
+                    <p class="text-gray-400">Innovation That Excites - Leading the future of mobility with cutting-edge technology and sustainable solutions.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Vehicles</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Sedans</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">SUVs</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Electric</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Trucks</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Maintenance</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Parts</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Warranty</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Financing</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Connect</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Facebook</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Twitter</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Instagram</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Nissan Motor Company. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Test Drive Modal -->
+    <div id="testDriveModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-xl p-8 max-w-md w-full mx-4">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-900">Schedule Test Drive</h3>
+                <button onclick="closeTestDriveModal()" class="text-gray-500 hover:text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <p class="text-sm text-yellow-600 mb-4">⚠️ Demo Form - Appointments will not be scheduled</p>
+            <form class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Vehicle Model</label>
+                    <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent">
+                        <option>Select a model</option>
+                        <option>Nissan Altima</option>
+                        <option>Nissan Rogue</option>
+                        <option>Nissan LEAF</option>
+                        <option>Nissan GTR-35</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Preferred Date</label>
+                    <input type="date" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Contact Number</label>
+                    <input type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="(555) 123-4567">
+                </div>
+                <button type="button" onclick="showDemoAlert()" class="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg font-semibold transition-colors">
+                    Schedule Test Drive
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Vehicle Details Modal -->
+    <div id="vehicleModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-xl p-8 max-w-2xl w-full mx-4 max-h-96 overflow-y-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h3 id="vehicleTitle" class="text-2xl font-bold text-gray-900"></h3>
+                <button onclick="closeVehicleModal()" class="text-gray-500 hover:text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="vehicleContent"></div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Add click handlers to navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                scrollToSection(targetId);
+                
+                // Close mobile menu if open
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Test Drive Modal Functions
+        function openTestDriveModal() {
+            document.getElementById('testDriveModal').classList.remove('hidden');
+            document.getElementById('testDriveModal').classList.add('flex');
+        }
+
+        function closeTestDriveModal() {
+            document.getElementById('testDriveModal').classList.add('hidden');
+            document.getElementById('testDriveModal').classList.remove('flex');
+        }
+
+        // Vehicle Details Modal Functions
+        function showVehicleDetails(vehicle) {
+            const modal = document.getElementById('vehicleModal');
+            const title = document.getElementById('vehicleTitle');
+            const content = document.getElementById('vehicleContent');
+            
+            const vehicleData = {
+                altima: {
+                    title: 'Nissan Altima',
+                    content: `
+                        <div class="space-y-4">
+                            <p class="text-gray-600">The Nissan Altima combines intelligent technology with sophisticated design to deliver an exceptional driving experience.</p>
+                            <h4 class="text-lg font-semibold">Key Features:</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>2.5L 4-cylinder engine with 188 horsepower</li>
+                                <li>Xtronic CVT® transmission</li>
+                                <li>Nissan Safety Shield 360</li>
+                                <li>8-inch touchscreen display</li>
+                                <li>Apple CarPlay® and Android Auto™</li>
+                                <li>Intelligent All-Wheel Drive available</li>
+                            </ul>
+                            <div class="bg-gray-100 p-4 rounded-lg">
+                                <p class="font-semibold">Starting MSRP: $24,550</p>
+                                <p class="text-sm text-gray-600">*Price excludes destination and handling charges, taxes, title, and license fees.</p>
+                            </div>
+                        </div>
+                    `
+                },
+                rogue: {
+                    title: 'Nissan Rogue',
+                    content: `
+                        <div class="space-y-4">
+                            <p class="text-gray-600">The Nissan Rogue is designed for adventure with advanced safety features and spacious comfort for the whole family.</p>
+                            <h4 class="text-lg font-semibold">Key Features:</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>2.5L 4-cylinder engine with 181 horsepower</li>
+                                <li>Xtronic CVT® with Sport Mode</li>
+                                <li>ProPILOT Assist available</li>
+                                <li>Intelligent Around View® Monitor</li>
+                                <li>Divide-N-Hide® Cargo System</li>
+                                <li>Intelligent All-Wheel Drive</li>
+                            </ul>
+                            <div class="bg-gray-100 p-4 rounded-lg">
+                                <p class="font-semibold">Starting MSRP: $33,300</p>
+                                <p class="text-sm text-gray-600">*Price excludes destination and handling charges, taxes, title, and license fees.</p>
+                            </div>
+                        </div>
+                    `
+                },
+                leaf: {
+                    title: 'Nissan LEAF',
+                    content: `
+                        <div class="space-y-4">
+                            <p class="text-gray-600">The 100% electric Nissan LEAF is leading the charge towards a sustainable future with zero emissions and advanced technology.</p>
+                            <h4 class="text-lg font-semibold">Key Features:</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>100% electric powertrain</li>
+                                <li>Up to 149 miles of range</li>
+                                <li>e-Pedal technology</li>
+                                <li>NissanConnect® EV app</li>
+                                <li>CHAdeMO quick charging capability</li>
+                                <li>Zero emissions driving</li>
+                            </ul>
+                            <div class="bg-gray-100 p-4 rounded-lg">
+                                <p class="font-semibold">Starting MSRP: $31,620</p>
+                                <p class="text-sm text-gray-600">*Price excludes destination and handling charges, taxes, title, and license fees. Federal tax credit may apply.</p>
+                            </div>
+                        </div>
+                    `
+                }
+            };
+            
+            title.textContent = vehicleData[vehicle].title;
+            content.innerHTML = vehicleData[vehicle].content;
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeVehicleModal() {
+            document.getElementById('vehicleModal').classList.add('hidden');
+            document.getElementById('vehicleModal').classList.remove('flex');
+        }
+
+        // Demo alert function
+        function showDemoAlert() {
+            alert('This is a demo website. In a real implementation, this would submit your information to Nissan\'s systems.');
+        }
+
+        // Close modals when clicking outside
+        document.getElementById('testDriveModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeTestDriveModal();
+            }
+        });
+
+        document.getElementById('vehicleModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeVehicleModal();
+            }
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                navbar.classList.add('bg-white/95', 'backdrop-blur-sm');
+            } else {
+                navbar.classList.remove('bg-white/95', 'backdrop-blur-sm');
+            }
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('slide-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe sections for animation
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'972c15a3e0f4db0a',t:'MTc1NTc5OTc5OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
